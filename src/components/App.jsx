@@ -4,17 +4,14 @@ import Modal from './Modal/Modal';
 import { Component } from 'react';
 import TodoList from './TodoList/TodoList';
 
-
 export class App extends Component {
   state = {
     isShowModal: false,
-
   };
 
   toggleModal = () => {
     this.setState(prev => ({ isShowModal: !prev.isShowModal }));
   };
-
 
   render() {
     return (
