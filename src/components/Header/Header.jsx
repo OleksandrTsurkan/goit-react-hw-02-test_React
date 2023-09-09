@@ -4,7 +4,7 @@ const Header = ({ toggleModal }) => {
       <div className="container-fluid">
         <span className="navbar-brand mb-0 h1 text-success">Navbar</span>
         <button onClick={toggleModal} className="btn btn-outline-success">
-          Open Modal
+          Open Modals
         </button>
       </div>
     </nav>
