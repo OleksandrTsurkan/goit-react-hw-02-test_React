@@ -8,6 +8,7 @@ import FormFilterTodo from 'components/FormFilterTodo/FormFilter';
 class TodoList extends Component {
   state = {
     todo,
+    filteredTodo: null,
   };
   handleDelete = id => {
     this.setState(prev => ({
@@ -29,15 +30,13 @@ class TodoList extends Component {
     }));
   };
 
-
-  filterTodo = (filterQuery) => {
+  filterTodo = filterQuery => {
     this.setState(prev => ({
-      todo: prev.todo.filter(el =>
+      filteredTodo: prev.todo.filter(el =>
         el.title.toLowerCase().includes(filterQuery.toLowerCase())
       ),
     }));
-  }
-
+  };
 
   render() {
     return (
@@ -45,7 +44,7 @@ class TodoList extends Component {
         <FormCreateTodo createTodo={this.createTodo} />
         <FormFilterTodo filterTodo={this.filterTodo} />
         <ul className="list-group">
-          {this.state.todo.map(el => (
+          {(this.state.filteredTodo ?? this.state.todo).map(el => (
             <Todo todo={el} key={el.id} handleDelete={this.handleDelete} />
           ))}
         </ul>
