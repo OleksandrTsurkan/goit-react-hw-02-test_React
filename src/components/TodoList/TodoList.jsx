@@ -10,6 +10,24 @@ class TodoList extends Component {
     todo,
     filteredTodo: null,
   };
+
+  componentDidMount() {
+    const localData = localStorage.getItem('todo');
+    if (localData) {
+      this.setState({ todo: JSON.parse(localData) });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (prevState.todo.length !== this.state.todo.length) {
+      localStorage.setItem('todo', JSON.stringify(this.state.todo));
+    }
+  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.todo.length < this.state.todo.length)
+  //     return alert("Wow man")
+  // }
+
   handleDelete = id => {
     this.setState(prev => ({
       todo: prev.todo.filter(el => el.id !== id),
@@ -38,6 +56,24 @@ class TodoList extends Component {
     }));
   };
 
+  handleCheck = id => {
+    this.setState(prev => ({
+      todo: prev.todo.map(el =>
+        el.id === id ? { ...el, completed: !el.completed } : el
+      ),
+      // todo: prev.todo.map((el) => {
+      // 	if (el.id === id) {
+      // 		return {
+      // 			...el,
+      // 			completed: !el.completed,
+      // 		}
+      // 	} else {
+      // 		return el
+      // 	}
+      // }),
+    }));
+  };
+
   render() {
     return (
       <div className="container">
@@ -45,7 +81,12 @@ class TodoList extends Component {
         <FormFilterTodo filterTodo={this.filterTodo} />
         <ul className="list-group">
           {(this.state.filteredTodo ?? this.state.todo).map(el => (
-            <Todo todo={el} key={el.id} handleDelete={this.handleDelete} />
+            <Todo
+              todo={el}
+              key={el.id}
+              handleDelete={this.handleDelete}
+              handleCheck={this.handleCheck}
+            />
           ))}
         </ul>
       </div>
