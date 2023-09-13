@@ -3,10 +3,10 @@ import { Component } from 'react';
 class Todo extends Component {
   // componentDidMount() {}
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.todo.completed !== this.props.todo.completed)
-  //     return alert("Wow man")
-  // }
+  componentDidUpdate(prevProps) {
+    if (prevProps.todo.completed !== this.props.todo.completed)
+      this.props.updateLocalData()
+  }
 
   render() {
     const {

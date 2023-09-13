@@ -13,7 +13,7 @@ class TodoList extends Component {
 
   componentDidMount() {
     const localData = localStorage.getItem('todo');
-    if (localData) {
+    if (localData && JSON.parse(localData).length > 0) {
       this.setState({ todo: JSON.parse(localData) });
     }
   }
@@ -27,6 +27,10 @@ class TodoList extends Component {
   //   if (prevState.todo.length < this.state.todo.length)
   //     return alert("Wow man")
   // }
+
+  updateLocalData = () => {
+    localStorage.setItem('todo', JSON.stringify(this.state.todo));
+  };
 
   handleDelete = id => {
     this.setState(prev => ({
@@ -86,6 +90,7 @@ class TodoList extends Component {
               key={el.id}
               handleDelete={this.handleDelete}
               handleCheck={this.handleCheck}
+              updateLocalData={this.updateLocalData}
             />
           ))}
         </ul>
