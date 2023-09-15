@@ -1,8 +1,9 @@
-import Counter from './Counter/Counter';
+// import Counter from './Counter/Counter';
 import Header from './Header/Header';
-import Modal from './Modal/Modal';
+// import Modal from './Modal/Modal';
 import { Component } from 'react';
-import TodoList from './TodoList/TodoList';
+// import TodoList from './TodoList/TodoList';
+import Products from './Products/Products';
 
 export class App extends Component {
   state = {
@@ -15,17 +16,16 @@ export class App extends Component {
 
   
 
-
-
-  render() {
+  render() { 
     return (
       <>
         <Header toggleModal={this.toggleModal} />
-        <Counter />
+        {/* <Counter />
         {this.state.isShowModal && (
           <Modal toggleModal={this.toggleModal}>Text for Modal</Modal>
-        )}
-        <TodoList />
+        )} */}
+        {/* <TodoList /> */}
+        <Products/>
       </>
     );
   }
