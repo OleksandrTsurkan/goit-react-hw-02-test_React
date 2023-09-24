@@ -1,10 +1,10 @@
 import Todo from 'components/Todo/Todo';
 // import todo from './data.json';
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FormCreateTodo from 'components/Forms/FormCreateTodo';
 // import { nanoid } from 'nanoid';
 import FormFilterTodo from 'components/FormFilterTodo/FormFilter';
-import { getAllTodo } from 'API/Todo';
+// import { getAllTodo } from 'API/Todo';
 import todoData from './data.json';
 import { nanoid } from 'nanoid';
 
