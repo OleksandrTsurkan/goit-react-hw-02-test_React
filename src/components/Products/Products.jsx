@@ -1,8 +1,7 @@
-
 import getProductsBySearch from 'API/products';
 import FormSearchProducts from 'components/FormFilterTodo/FormSearchProducts';
 import Product from 'components/Product/Product';
-import { Component } from 'react';
+import { Component, useState } from 'react';
 
 class Products extends Component {
   state = { isLoading: false, error: '', products: null, searchQuery: '' };
@@ -49,4 +48,4 @@ class Products extends Component {
   }
 }
 
-export default Products; 
+export default Products;

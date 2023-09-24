@@ -4,6 +4,7 @@ import Header from './Header/Header';
 import { Component } from 'react';
 // import TodoList from './TodoList/TodoList';
 import Products from './Products/Products';
+import TodoList from './TodoList/TodoList';
 
 export class App extends Component {
   state = {
@@ -24,7 +25,7 @@ export class App extends Component {
         {this.state.isShowModal && (
           <Modal toggleModal={this.toggleModal}>Text for Modal</Modal>
         )} */}
-        {/* <TodoList /> */}
+        <TodoList />
         <Products/>
       </>
     );
